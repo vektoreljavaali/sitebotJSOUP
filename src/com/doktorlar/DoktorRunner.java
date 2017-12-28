@@ -44,9 +44,11 @@ public class DoktorRunner {
         Elements els6;
         Elements els7;
         
+        Document doc;
+        
         for (int i = 1; i <= 4851; i++) {
         	
-        	  Document doc = Jsoup.connect(url.concat(i+"")).get();
+        	  doc = Jsoup.connect(url.concat(i+"")).get();
               
               Elements els = doc.select("section");
 		
@@ -65,6 +67,16 @@ public class DoktorRunner {
         		break;
         		
 			}
+        	
+        	// Doktorlarýn url linklerini alýr
+        	els2 = child1.select("img");
+        	for (Element element1 : els2) {
+        		System.out.println(element1.attr("src"));
+        		dokt.setUrl(element1.attr("src"));
+        		break;
+        		
+			}
+        	
         	
         	
         	// Doktorlarýn yýldýzlarý  alýr
@@ -116,9 +128,9 @@ public class DoktorRunner {
 				break;
 			}
         	
-           
-        	db.Kaydet(dokt);
-        
+           dlst.add(dokt);
+       // 	db.Kaydet(dokt);
+        break;
         	      
         	
 		}
