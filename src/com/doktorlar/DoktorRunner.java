@@ -26,9 +26,7 @@ public class DoktorRunner {
 		doktors dokt;
 		DAO db =  new DAO();
 		String url = "https://www.doktorsitesi.com/uzmanlar?sayfa=";
-
-      
-        
+		dosyayakayit ds = new dosyayakayit();
         Document child1 ;
         Document child2 ;
         Document child3 ;
@@ -72,7 +70,8 @@ public class DoktorRunner {
         	els2 = child1.select("img");
         	for (Element element1 : els2) {
         		System.out.println(element1.attr("src"));
-        		dokt.setUrl(element1.attr("src"));
+        		dokt.setImageurl(element1.attr("src"));
+        		
         		break;
         		
 			}
@@ -127,10 +126,12 @@ public class DoktorRunner {
 				dokt.setAdresfull(element5.text());
 				break;
 			}
+        	String dosyaadi =  "doktorimages/"+dokt.getAdsoyad()+".jpg";
+        	ds.downloadUsingNIO(dokt.getImageurl(),dosyaadi);
         	
            dlst.add(dokt);
        // 	db.Kaydet(dokt);
-        break;
+      
         	      
         	
 		}

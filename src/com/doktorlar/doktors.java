@@ -13,6 +13,15 @@ public class doktors {
 	private String adreslocalty;
 	private String tel;
 	private String googlemaps;
+	private String imageurl;
+	
+	
+	public String getImageurl() {
+		return imageurl;
+	}
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
+	}
 	public String getYorumsayisi() {
 		return yorumsayisi;
 	}
