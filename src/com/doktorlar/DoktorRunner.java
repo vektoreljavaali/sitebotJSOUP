@@ -54,7 +54,7 @@ public class DoktorRunner {
 		
         
         for (Element element : els) {
-        	
+        try {
         	dokt = new doktors();
         	//if(element.tagName().equals("section"))
         	child1 = Jsoup.parse(element.toString());
@@ -86,10 +86,26 @@ public class DoktorRunner {
         		  ozgecmis+= element2.text();
 				   		
 			}  
-        	  
         	
-        	  
-        	  
+        dokt.setOzgecmis(ozgecmis);
+        	 childels = childdoc.select("div");
+            	 String deneyim="";
+            	  for (Element element2 : childels) {
+            		  if(element2.attr("id").equals("treatments"))
+            			  deneyim+= (element2.text()+":");
+    				   		
+    		}  
+            	
+        
+          dokt.setDeneyimler(deneyim);
+          
+         	 childels = childdoc.select("div");
+           	 String uzmanlikalanlari="";
+          	  for (Element element2 : childels) {
+               		  if(element2.attr("id").equals("relevances"))
+               			uzmanlikalanlari+= (element2.text()+":");
+         		}  
+            dokt.setUzmanlikalanlari(uzmanlikalanlari);    	  
         	  
         	// Doktorlarýn url linklerini alýr
         	els2 = child1.select("img");
@@ -155,8 +171,12 @@ public class DoktorRunner {
         	String dosyaadi =  "doktorimages/"+dokt.getAdsoyad()+".jpg";
         	ds.downloadUsingNIO(dokt.getImageurl(),dosyaadi);
         	
-           dlst.add(dokt);
-       // 	db.Kaydet(dokt);
+       //    dlst.add(dokt);
+      	db.Kaydet(dokt);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}	
+        	
       
         	      
         	
