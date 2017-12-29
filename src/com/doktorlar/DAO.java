@@ -14,7 +14,7 @@ public class DAO extends DatataBaseConnections{
 
 			DatataBaseConnections DB = new DatataBaseConnections();
 			
-			String SQL = " INSERT INTO tbldoktorlar(yorumsayisi, adsoyad, brans, url, relevances, adresname, adresfull, adreslocality, tel, googlemaps)	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			String SQL = " INSERT INTO tbldoktorlar(yorumsayisi, adsoyad, brans, url, relevances, adresname, adresfull, adreslocality, tel, googlemaps, imageurl, ozgecmis, deneyimler, uzmanliklanlari)	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?);";
 		
 			newConnectDB();
 
@@ -30,6 +30,11 @@ public class DAO extends DatataBaseConnections{
 			pstmt.setString(8, doktor.getAdreslocalty());
 			pstmt.setString(9, doktor.getTel());
 			pstmt.setString(10, doktor.getGooglemaps());
+			pstmt.setString(11, doktor.getImageurl());
+			pstmt.setString(12, doktor.getOzgecmis());
+			pstmt.setString(13, doktor.getDeneyimler());
+			pstmt.setString(14, doktor.getUzmanlikalanlari());
+		
 			
 			pstmt.executeUpdate();
 

@@ -43,6 +43,8 @@ public class DoktorRunner {
         Elements els7;
         
         Document doc;
+        Document childdoc;
+        
         
         for (int i = 1; i <= 4851; i++) {
         	
@@ -66,8 +68,32 @@ public class DoktorRunner {
         		
 			}
         	
+        	//Doktor özel sayfasý
+        	  childdoc = Jsoup.connect(dokt.getUrl()).get();
+        	  Elements childels = childdoc.select("img");
+        	  int don=0;
+        	
+        	  for (Element element2 : childels) {
+        		if(element2.attr("class").equals("img-responsive"))
+				if(element2.attr("src").contains("googleapis"))	dokt.setGooglemaps(element2.attr("src"));
+				   		
+			}
+        	
+        	 childels = childdoc.select("div");
+        	 String ozgecmis="";
+        	  for (Element element2 : childels) {
+        		  if(element2.attr("style").equals("margin-left:35px;max-height: 220px; overflow-y:auto;"))
+        		  ozgecmis+= element2.text();
+				   		
+			}  
+        	  
+        	
+        	  
+        	  
+        	  
         	// Doktorlarýn url linklerini alýr
         	els2 = child1.select("img");
+        	
         	for (Element element1 : els2) {
         		System.out.println(element1.attr("src"));
         		dokt.setImageurl(element1.attr("src"));

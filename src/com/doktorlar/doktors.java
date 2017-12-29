@@ -14,8 +14,30 @@ public class doktors {
 	private String tel;
 	private String googlemaps;
 	private String imageurl;
+	private String ozgecmis;
+	private String deneyimler;
+	private String uzmanlikalanlari;
 	
 	
+	
+	public String getOzgecmis() {
+		return ozgecmis;
+	}
+	public void setOzgecmis(String ozgecmis) {
+		this.ozgecmis = ozgecmis;
+	}
+	public String getDeneyimler() {
+		return deneyimler;
+	}
+	public void setDeneyimler(String deneyimler) {
+		this.deneyimler = deneyimler;
+	}
+	public String getUzmanlikalanlari() {
+		return uzmanlikalanlari;
+	}
+	public void setUzmanlikalanlari(String uzmanlikalanlari) {
+		this.uzmanlikalanlari = uzmanlikalanlari;
+	}
 	public String getImageurl() {
 		return imageurl;
 	}
