@@ -1,0 +1,20 @@
+
+create table tbltbldoktorlar
+(
+	id serial primary key,
+    yorumsayisi varchar(1024), 
+    adsoyad varchar(1024), 
+    brans varchar(1024), 
+    url varchar(1024), 
+    relevances varchar(1024),
+    adresname varchar(1024), 
+    adresfull varchar(1024), 
+    adreslocality varchar(1024), 
+    tel varchar(1024), 
+    googlemaps varchar(1024), 
+    imageurl varchar(1024), 
+    ozgecmis varchar(1024), 
+    deneyimler varchar(1024), 
+    uzmanliklanlari varchar(1024)
+)
+

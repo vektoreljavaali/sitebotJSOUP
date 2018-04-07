@@ -13,7 +13,7 @@ public class DatataBaseConnections {
 		try {
 
 				Class.forName("org.postgresql.Driver");
-				conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/DBDoktorlar", "postgres", "Aa123456");
+				conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/DBDoktorlar", "postgres", "root");
 			
 
 		} catch (Exception e) {

@@ -10,11 +10,11 @@ import java.sql.ResultSet;
 
 public class DAO extends DatataBaseConnections{
 	  
-		public int Kaydet(doktors doktor) throws Exception {
+		public int Kaydet(doktors doktor,String dbid) throws Exception {
 
 			DatataBaseConnections DB = new DatataBaseConnections();
 			
-			String SQL = " INSERT INTO tbldoktorlar(yorumsayisi, adsoyad, brans, url, relevances, adresname, adresfull, adreslocality, tel, googlemaps, imageurl, ozgecmis, deneyimler, uzmanliklanlari)	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?);";
+			String SQL = " INSERT INTO tbldoktorlar"+dbid+"(yorumsayisi, adsoyad, brans, url, relevances, adresname, adresfull, adreslocality, tel, googlemaps, imageurl, ozgecmis, deneyimler, uzmanliklanlari)	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?);";
 		
 			newConnectDB();
 
